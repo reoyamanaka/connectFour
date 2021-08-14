@@ -1,8 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        Board board = new Board();
+        Board board = new Board(10, 6);
         Piece piece = new Piece(1, 4, 'X');
-        board.createBoard(10, 6);
-        
+        System.out.println(board.getField());
     }
 }
