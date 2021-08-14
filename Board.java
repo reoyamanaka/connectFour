@@ -1,4 +1,12 @@
 public class Board {
+    
+    // instance variables
+    private int width;
+    private int height;
+
+    
+
+
     public static String createBoard(int width, int height) {
         String gameBoard = "";
         for (int i = 0; i < height; i++) {

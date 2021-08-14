@@ -6,9 +6,15 @@ public class Piece {
     private char type;
 
     // constructor
-    public Piece (int x, int y, char type) {
-        x = x;
-        y = y;
-        type = type;
+    public Piece (int initX, int initY, char pieceType) {
+        x = initX;
+        y = initY;
+        type = pieceType;
+    }
+
+    public String getInfo() {
+        String infoString = "x-coord: %d, y-coord: %d, piece type: %s";
+        infoString = String.format(infoString, this.x, this.y, this.type);
+        return infoString;
     }
 }
