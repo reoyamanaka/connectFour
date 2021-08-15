@@ -7,12 +7,19 @@ public class Main {
         Scanner gameMaster = new Scanner(System.in);
         while (game.gameOn()) {
             System.out.println(board.getField());
-            int option = gameMaster.nextInt();
-            if (option == 4) {
+            String option = gameMaster.nextLine();
+            if (option.equals("gameSet")) {
                 game.gameOver();
             } 
-            System.out.println(option);
-            System.out.println(game.gameOn());
+            if (game.currentTurn() == 1) {
+                System.out.println("It is Player 1's (X's) turn.");
+                System.out.println("Enter column number: ");
+                int columnInput = gameMaster.nextInt();
+                Piece chosenPiece = new Piece(columnInput, 'X');
+                chosenPiece.insertPiece(board);
+            } else if (game.currentTurn() == 2) {
+                System.out.println("It is Player 2's (O's) turn.");
+            }
         }
     }
 }

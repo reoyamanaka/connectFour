@@ -15,27 +15,21 @@ public class Board {
     }
 
     private void addCoordinates() {
-        for (int i = 0; i < this.field.length; i++) {
-            this.field[i][0] = (char)(i + '0');
-        }
         char[] bottomCoords = new char[this.field[0].length];
         for (int i = 0; i < this.field[0].length; i++) {
-            if (i == 0) {
-                bottomCoords[i] = ' ';
-            } else {
-                bottomCoords[i] = (char)((i - 1) + '0');
-            }
+            bottomCoords[i] = (char)((i) + '0');
         }
         this.field[this.field.length - 1] = bottomCoords;
     }
 
-    public boolean update(int x, int y, char type) {
+    public boolean update(int x, char type) {
         boolean updated = false;
-        if (this.field[x][y] == '-') {
-            this.field[x][y] = type;
-            updated = true;
-        } else {
-            System.out.println("There is already a piece in this slot!");
+        for (int i = this.field.length - 1; i > -1; i--) {
+            if (this.field[i][x] == '-') {
+                this.field[i][x] = type;
+                updated = true;
+                break;
+            }
         }
         return updated;
     }
