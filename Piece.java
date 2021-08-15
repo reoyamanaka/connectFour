@@ -1,12 +1,9 @@
 public class Piece {
-
-    // instance variables
     private int x;
     private int y;
     private char type;
     private Board board;
 
-    // constructor
     public Piece (int initX, int initY, char pieceType, Board gameBoard) {
         x = initX;
         y = initY;

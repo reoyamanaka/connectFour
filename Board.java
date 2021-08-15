@@ -1,10 +1,8 @@
 public class Board {
-    // instance variables
     private int width;
     private int height;
     private char[][] field;
 
-    // constructor
     public Board(int width, int height) {
         char[][] gameBoard = new char[height + 1][width];
         for (int i = 0; i < height; i++) {
@@ -14,7 +12,6 @@ public class Board {
         }
         field = gameBoard;
         this.addCoordinates();
-
     }
 
     private void addCoordinates() {
