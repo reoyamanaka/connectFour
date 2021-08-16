@@ -1,6 +1,7 @@
-
+import java.util.Scanner;
 
 public class Game {
+
     private boolean status;
     private int turn;
 
@@ -24,16 +25,30 @@ public class Game {
         return this.turn;
     }
 
-    public boolean runTurn(int player) {
-        int playerNum = 1;
+    public void nextTurn() {
+        if (this.turn == 1) {
+            this.turn = 2;
+        } else {
+            this.turn = 1;
+        }
+    }
+
+    public boolean runTurn(int player, Game game, Board board, Scanner gameMaster) {
         char playerSymbol = 'X';
         if (player == 2) {
-            playerNum = 2;
             playerSymbol = 'O';
         }
         String turnMessage = "It is Player %d's (%s's) turn.";
-        turnMessage = String.format(turnMessage, playerNum, playerSymbol);
+        turnMessage = String.format(turnMessage, player, playerSymbol);
         System.out.println(turnMessage);
-        return true;
+
+        System.out.println("Enter column number: ");
+        int columnInput = gameMaster.nextInt();
+        Piece chosenPiece = new Piece(columnInput, playerSymbol);
+        if (chosenPiece.insertPiece(board)) {
+            game.nextTurn();
+            return true;
+        } 
+        return false;
     }
 }

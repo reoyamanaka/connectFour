@@ -24,12 +24,16 @@ public class Board {
 
     public boolean update(int x, char type) {
         boolean updated = false;
-        for (int i = this.field.length - 1; i > -1; i--) {
-            if (this.field[i][x] == '-') {
-                this.field[i][x] = type;
-                updated = true;
-                break;
+        if (!this.rowFull(x)) {
+            for (int i = this.field.length - 1; i > -1; i--) {
+                if (this.field[i][x] == '-') {
+                    this.field[i][x] = type;
+                    updated = true;
+                    break;
+                }
             }
+        } else {
+            System.out.println("This column is full. Choose another.");
         }
         return updated;
     }
@@ -45,5 +49,34 @@ public class Board {
             board += boardRow;
         }
         return board;
+    }
+    
+    public boolean rowFull(int column) {
+        return this.field[0][column] != '-';
+    }
+
+    public int winner() {
+        int winner = 0;
+        int player1Counter = 0;
+        int player2Counter = 0;
+        for (int i = 0; i < this.field[0].length; i++) {
+            int bottom = this.field.length - 2;
+            if (this.field[bottom][i] == 'X') {
+                while (bottom > 0) {
+                    if (this.field[bottom][i] == 'X') {
+                        player1Counter++;
+                        if (player1Counter == 4) {
+                            return 1;
+                        }
+                    } else {
+                        player1Counter = 0;
+                        break;
+                    }
+                    bottom--;
+                }
+            }
+
+        }
+        return winner;
     }
 }
