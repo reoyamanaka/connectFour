@@ -59,6 +59,8 @@ public class Board {
         int winner = 0;
         int player1Counter = 0;
         int player2Counter = 0;
+
+        // checking all vertical win options
         for (int i = 0; i < this.field[0].length; i++) {
             int bottom = this.field.length - 2;
             if (this.field[bottom][i] == 'X') {
@@ -74,9 +76,37 @@ public class Board {
                     }
                     bottom--;
                 }
+            } else if (this.field[bottom][i] == 'O') {
+                while (bottom > 0) {
+                    if (this.field[bottom][i] == 'O') {
+                        player2Counter++;
+                        if (player2Counter == 4) {
+                            return 2;
+                        }
+                    } else {
+                        player2Counter = 0;
+                        break;
+                    }
+                    bottom--;
+                }
             }
-
         }
+
+        // checking all horizontal win options
+        for (int i = 0; i < this.field.length; i++) {
+            for (int j = 0; j < this.field[0].length - 3; j++) {
+                if (this.field[i][j] == 'X' && this.field[i][j + 1] == 'X' && this.field[i][j + 2] == 'X' && this.field[i][j + 3] == 'X') {
+                    return 1;
+                }
+                else if (this.field[i][j] == 'O' && this.field[i][j + 1] == 'O' && this.field[i][j + 2] == 'O' && this.field[i][j + 3] == 'O') {
+                    return 2;
+                }
+            }
+        }    
+
+        // checking all diagonal win options
+
+
         return winner;
     }
 }

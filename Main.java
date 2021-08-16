@@ -8,14 +8,12 @@ public class Main {
         System.out.println(board.getField());
 
         while (game.gameOn()) {
-            String option = gameMaster.nextLine();
-            if (option.equals("gameSet")) {
-                game.gameOver();
-            } 
             game.runTurn(game.currentTurn(), game, board, gameMaster);
-            if (board.winner() == 1) {
+            if (board.winner() == 1 || board.winner() == 2) {
                 game.gameOver();
-                System.out.println("Player 1 has won.");
+                String finalMessage = "Player %d has won.";
+                finalMessage = String.format(finalMessage, board.winner());
+                System.out.println(finalMessage);
             }
             System.out.println(board.getField());
         }
