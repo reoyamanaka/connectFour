@@ -81,7 +81,7 @@ public class Board {
                     }
                     bottom--;
                 }
-            } else if (this.field[bottom][i] == 'O') {
+            } if (this.field[bottom][i] == 'O') {
                 while (bottom > 0) {
                     if (this.field[bottom][i] == 'O') {
                         player2Counter++;
@@ -109,11 +109,24 @@ public class Board {
             }
         }    
 
-        // checking all diagonal win options
-        for (int i = 0; i < this.field[0].length - 3; i++) {
-            for (int j = 0; j < this.field.length - 3; j++) {
+        // checking all descending diagonal win options
+        for (int i = 0; i < this.field.length - 3; i++) {
+            for (int j = 0; j < this.field[0].length - 3; j++) {
                 if (this.field[i][j] == 'X' && this.field[i + 1][j + 1] == 'X' && this.field[i + 2][j + 2] == 'X' && this.field[i + 3][j + 3] == 'X') {
                     return 1;
+                } else if (this.field[i][j] == 'O' && this.field[i + 1][j + 1] == 'O' && this.field[i + 2][j + 2] == 'O' && this.field[i + 3][j + 3] == 'O') {
+                    return 2;
+                }
+            }
+        }
+
+        // checking all ascending diagonal win options
+        for (int i = 0; i < this.field.length; i++) {
+            for (int j = this.field[0].length - 1; j > 2; j--) {
+                if (this.field[i][j] == 'X' && this.field[i + 1][j - 1] == 'X' && this.field[i + 2][j - 2] == 'X' && this.field[i + 3][j - 3] == 'X') {
+                    return 1;
+                } else if (this.field[i][j] == 'O' && this.field[i + 1][j - 1] == 'O' && this.field[i + 2][j - 2] == 'O' && this.field[i + 3][j - 3] == 'O') {
+                    return 2;
                 }
             }
         }
