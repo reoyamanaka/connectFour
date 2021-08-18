@@ -11,4 +11,8 @@ public class Piece {
         return gameBoard.update(this.x, this.type);
     }
 
+    // for convenient testing only
+    public boolean insertPieceAsGod(int x, int y, Board gameBoard) {
+        return gameBoard.godMode(x, y, this.type);
+    }
 }

@@ -42,10 +42,21 @@ public class Game {
         turnMessage = String.format(turnMessage, player, playerSymbol);
         System.out.println(turnMessage);
 
-        System.out.println("Enter column number: ");
-        int columnInput = gameMaster.nextInt();
-        Piece chosenPiece = new Piece(columnInput, playerSymbol);
-        if (chosenPiece.insertPiece(board)) {
+        int godX = gameMaster.nextInt();
+        int godY = gameMaster.nextInt();
+        Piece chosenPiece = new Piece(godX, playerSymbol);
+
+
+
+        // System.out.println("Enter column number: ");
+        // int columnInput = gameMaster.nextInt();
+        // Piece chosenPiece = new Piece(columnInput, playerSymbol);
+        // if (chosenPiece.insertPiece(board)) {
+        //     game.nextTurn();
+        //     return true;
+        // } 
+        
+        if (chosenPiece.insertPieceAsGod(godX, godY, board)) {
             game.nextTurn();
             return true;
         } 

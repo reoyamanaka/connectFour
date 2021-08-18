@@ -37,6 +37,11 @@ public class Board {
         }
         return updated;
     }
+
+    public boolean godMode(int x, int y, char type) {
+        this.field[x][y] = type;
+        return true;
+    }
     
     public String getField() {
         String board = "\n";
@@ -105,7 +110,13 @@ public class Board {
         }    
 
         // checking all diagonal win options
-
+        for (int i = 0; i < this.field[0].length - 3; i++) {
+            for (int j = 0; j < this.field.length - 3; j++) {
+                if (this.field[i][j] == 'X' && this.field[i + 1][j + 1] == 'X' && this.field[i + 2][j + 2] == 'X' && this.field[i + 3][j + 3] == 'X') {
+                    return 1;
+                }
+            }
+        }
 
         return winner;
     }
