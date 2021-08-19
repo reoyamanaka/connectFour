@@ -62,37 +62,15 @@ public class Board {
 
     public int winner() {
         int winner = 0;
-        int player1Counter = 0;
-        int player2Counter = 0;
 
         // checking all vertical win options
-        for (int i = 0; i < this.field[0].length; i++) {
-            int bottom = this.field.length - 2;
-            if (this.field[bottom][i] == 'X') {
-                while (bottom > 0) {
-                    if (this.field[bottom][i] == 'X') {
-                        player1Counter++;
-                        if (player1Counter == 4) {
-                            return 1;
-                        }
-                    } else {
-                        player1Counter = 0;
-                        break;
-                    }
-                    bottom--;
+        for (int i = 0; i < this.field.length - 3; i++) {
+            for (int j = 0; j < this.field[0].length; j++) {
+                if (this.field[i][j] == 'X' && this.field[i + 1][j] == 'X' && this.field[i + 2][j] == 'X' && this.field[i + 3][j] == 'X') {
+                    return 1;
                 }
-            } if (this.field[bottom][i] == 'O') {
-                while (bottom > 0) {
-                    if (this.field[bottom][i] == 'O') {
-                        player2Counter++;
-                        if (player2Counter == 4) {
-                            return 2;
-                        }
-                    } else {
-                        player2Counter = 0;
-                        break;
-                    }
-                    bottom--;
+                else if (this.field[i][j] == 'O' && this.field[i + 1][j] == 'O' && this.field[i + 2][j] == 'O' && this.field[i + 3][j] == 'O') {
+                    return 2;
                 }
             }
         }
