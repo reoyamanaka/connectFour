@@ -10,13 +10,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/reoyamanaka/connectFour.git">
-    <img src="images/lit_ipsum.gif" alt="Logo" width="80" height="80">
+    <img src="images/connectFour.svg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Connect Four</h3>
 
   <p align="center">
-    A Python script that retrieves random text excerpts from the Lit Ipsum API.
+    Connect Four game on Console made with Java.
     <br />
     <a href="https://github.com/reoyamanaka/connectFour"><strong>Explore the docs »</strong></a>
     <br />
@@ -28,7 +28,6 @@
     <a href="https://github.com/reoyamanaka/connectFour/issues">Request Feature</a>
   </p>
 </p>
-
 
 
 <!-- TABLE OF CONTENTS -->
@@ -57,18 +56,23 @@
 </details>
 
 
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<p align="left">
-  <img src="images/0.png">
-</p>
+<div style="display: flex; margin-bottom: 30px;">
+  <img src="images/horizontal.png" />
+  <img src="images/vertical.png" />
+</div>
+<div style="display: flex;">
+  <img src="images/diagonal0.png" />
+  <img src="images/diagonal1.png" />
+</div>
+
 
 ### Built With
 
 * Adobe Illustrator Version 23.1 (Logo design)
-* Python 3.8.1
+* Java SE 16
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -77,27 +81,20 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* requests
-  ```sh
-  pip install requests
-  ```
+* Java SE 16
+  Download it <a href="https://www.oracle.com/ca-en/java/technologies/javase-downloads.html">here</a>.
 
 ### Installation
 
 1. Clone the repo
    ```sh
    git clone https://github.com/reoyamanaka/connectFour.git
-   ```
-2. Install requirements
-   ```sh
-   pip install -r requirements.txt
-   ```
 
 
 <!-- USAGE -->
 ## Usage
 
-![](images/litIpsumApiDemo.gif)
+![](images/connectFour.gif)
 
 
 <!-- ROADMAP -->
